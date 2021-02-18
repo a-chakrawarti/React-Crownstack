@@ -37,6 +37,38 @@ Inside the `App.js` we have a render method (life-cycle method), only method tha
 In JSX, instead of `<div class="name"></div>` we would be writing `<div className="name"></div>`.
 
 
+## JSX: JavaScript Syntax Extension
+
+- Produces React "elements".
+- Rendering logic coupled with other UI logic. Markup and logic in same file, react [separates concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components". 
+
+```javascript
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+### Specifying Attributes with JSX
+
+> Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
+For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabIndex`.
+
+
+- JSX needs to have only one top parent tag `<div>` enclosing everything. It cannot hold 2 top parent or siblings. Only one Root JSX Element returned by Component.
+
+- JSX elements are JS Objects.
+
+- For multiline make use of parantheses ().
+
+- JSX elements are not strings and cannot concatenate but we can put them in array.
+
+![jsx-combine](./assets/jsx-combine.png)
+
+
 ## package.json
 
 It is a manifest file that has information about our app like the dependencies/packages that are being used.
@@ -56,3 +88,18 @@ It is a manifest file that has information about our app like the dependencies/p
     }
 }
 ```
+
+## Functional Components vs Class Components
+
+### Functional Components
+
+- We can use functional component to directly render JSX in DOM.
+- We can pass `props` as an argument to the function and reuse the component by changing the attributes.
+- `props` is a JavaScript Object that stores the attributes of the component to be used.
+- Used for UI purpose.
+
+![fc-pc](./assets/fc-picturecomponent.png)
+
+### Class Components
+
+- We will need to import {Component} from 'react' or make use of React.Component class and use a render() method to return JSX to render it in DOM. 
