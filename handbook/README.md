@@ -68,6 +68,33 @@ For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabInde
 
 ![jsx-combine](./assets/jsx-combine.png)
 
+## props
+
+- `propTypes` does type validation of value in props of a component. We can also specify whether the prop is required or not and based on these warnings are raised. Considered "Good Practice".
+   - From React 15.5 `prop-types` need to be installed via NPM `npm i prop-types`. 
+
+- Default props: We can specify default values for a component using `defaultProps`. If we specify props then this will overwrite the default prop values.
+
+- props are passed from outside.
+- props are read-only.
+
+## State
+- State is maintained inside the component.
+- State are modifiable.
+
+### Sateful and Stateless Components
+
+- Stateful
+  - Have State variables in Component
+  - Complex to use as they have state changing logic
+
+- Stateless
+  - Don't have state variables, only `props`
+  - Simple as they don't have state change
+
+![event-state-change](./assets/event-state-change.png)
+
+### Downward and Upward Data Flow : TO_DO
 
 ## package.json
 
@@ -75,16 +102,16 @@ It is a manifest file that has information about our app like the dependencies/p
 ```json
 {
     "dependencies": {
-        "react": "^17.0.1", // the library itself
-        "react-dom": "^17.0.1", // deals with loading components in the browser, alrenative to this there is react-native for mobile
-        "react-scripts": "4.0.2", // dev server, compile our apps, test
+        "react": "^17.0.1", /* the library itself */
+        "react-dom": "^17.0.1", /* deals with loading components in the browser, alrenative to this there is react-native for mobile */
+        "react-scripts": "4.0.2", /* dev server, compile our apps, test */
     },
 
     "scripts": {
-        "start": "react-scripts start" , // start dev server, offers hot-reload
-        "build": "react-scripts build", // compiling before deploying, npm run build
+        "start": "react-scripts start" , /* start dev server, offers hot-reload */
+        "build": "react-scripts build", /* compiling before deploying, npm run build */
         "test": "react-scripts test",
-        "eject": "react-scripts eject" // customize webpack file
+        "eject": "react-scripts eject" /* customize webpack file */
     }
 }
 ```
@@ -103,3 +130,27 @@ It is a manifest file that has information about our app like the dependencies/p
 ### Class Components
 
 - We will need to import {Component} from 'react' or make use of React.Component class and use a render() method to return JSX to render it in DOM. 
+
+- Example:
+
+```javascript
+class ClassComponent extends Component {
+
+  constructor(props) {
+    super();
+  }
+  render() {
+    return (
+      <div>
+        <h1>This is a {this.prop.type} based Component.</h1>
+      </div>
+    )
+  }
+}
+
+<ClassComponent type="Class"/>
+```
+
+- To pass `props` in class based component we will have to use a `constructor`. To use `props` we have to make note of the context by using `this`. 
+
+- Preferable when logic is quite complex.
