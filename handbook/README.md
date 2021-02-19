@@ -1,7 +1,7 @@
 # ReactJS
 
-React is JavaScript library for building user-interfaces.
-React runs on client as a single page application(SPA). That is `public -> index.html`.
+React is **JavaScript library** for building rich user-interfaces.
+React runs on client as a single page application (SPA). That is `public -> index.html`.
 
 
 React is referred to as a front-end framework as it is comparable to frameworks like Angular or Vue.
@@ -12,7 +12,7 @@ Angular has a built in routing system and react doesn't but could be installed "
 ## Why use React?
 
 - React structures the "View" layer in MVC design pattern. Model deals with the data and Controller deals with the requests & routing.
-- Reusable components with their own state, making a dynamic site using vanilla JS could get really messy and hard to maintain in a team.
+- Component based Architecture: Reusable components with their own state, making a dynamic site using vanilla JS could get really messy and hard to maintain in a team.
 - JSX: JavaScript Syntax Extension (Dynamic Markup): this allows to write dynamic html.
 - Interactive UI since it uses Virtual DOM(Document Object Model). Updates a part of the page without reloading the entire page.
 - It structures the code base which make it easier to work in teams.
@@ -37,10 +37,12 @@ Inside the `App.js` we have a render method (life-cycle method), only method tha
 In JSX, instead of `<div class="name"></div>` we would be writing `<div className="name"></div>`.
 
 
-## JSX: JavaScript Syntax Extension
+## JSX: JavaScript XML
 
 - Produces React "elements".
-- Rendering logic coupled with other UI logic. Markup and logic in same file, react [separates concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components". 
+- JSX is an extension of the JavaScript language syntax based on ES6, and is translated into regular JavaScript at runtime.
+
+- We `import React from 'react';` on every component as `React.createElement` is used for JSX.
 
 ```javascript
 const name = 'Josh Perez';
@@ -52,13 +54,11 @@ ReactDOM.render(
 );
 ```
 
-### Specifying Attributes with JSX
-
-> Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
-For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabIndex`.
-
-
 - JSX needs to have only one top parent tag `<div>` enclosing everything. It cannot hold 2 top parent or siblings. Only one Root JSX Element returned by Component.
+
+- JSX follows XML rules, and therefore HTML elements must be properly closed.
+
+- JSX converts HTML tags into react elements. 
 
 - JSX elements are JS Objects.
 
@@ -68,6 +68,13 @@ For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabInde
 
 ![jsx-combine](./assets/jsx-combine.png)
 
+- JSX allows us to write HTML elements in JavaScript and place them in the DOM without any `createElement()`  and/or `appendChild()` methods.
+
+### Specifying Attributes with JSX
+
+> Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
+For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabIndex`.
+
 ## props
 
 - `propTypes` does type validation of value in props of a component. We can also specify whether the prop is required or not and based on these warnings are raised. Considered "Good Practice".
@@ -76,23 +83,44 @@ For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabInde
 - Default props: We can specify default values for a component using `defaultProps`. If we specify props then this will overwrite the default prop values.
 
 - props are passed from outside.
-- props are read-only.
+- props are read-only. And hence, props are immutable that is their values cannot be changed.
 
 ## State
-- State is maintained inside the component.
-- State are modifiable.
+```javascript
+// `this.state` is used to make a object and is understood by React as state 
+this.state = {
+  message: 'This is a message'
+}
 
-### Sateful and Stateless Components
+// on some event we can change the state using setState
 
-- Stateful
-  - Have State variables in Component
-  - Complex to use as they have state changing logic
+function onEvent() {
+  this.setState = {
+    message: 'This is new message'
+  }
+}
 
-- Stateless
-  - Don't have state variables, only `props`
-  - Simple as they don't have state change
+render() {
+  return (
+    <h3>{ this.state.message }</h3>
+    //  here we use an arrow function run the method only when it is clicked, not while rendering
+    <button onClick = { () => this.onEvent() }>Click</button>
+  )
+}
+```
+- State is nothing but an object that is privately maintained inside a component. 
+- State can influence what is rendered in the browser. 
+- State can be changed within the component.
 
 ![event-state-change](./assets/event-state-change.png)
+
+## `props` vs `state`
+
+![props-v-state](./assets/props-v-state.png)
+
+
+Both props and state hold information that influences the UI in the browser.
+
 
 ### Downward and Upward Data Flow : TO_DO
 
@@ -116,7 +144,17 @@ It is a manifest file that has information about our app like the dependencies/p
 }
 ```
 
-## Functional Components vs Class Components
+## Functional Components & Class Components
+Components describe a part of user interface.
+
+![component](./assets/component.png)
+
+
+Rendering logic coupled with other UI logic. Markup and logic in same file, react [separates concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components".
+
+
+Components are independent and reusable bits of code.
+
 
 ### Functional Components
 
@@ -153,4 +191,11 @@ class ClassComponent extends Component {
 
 - To pass `props` in class based component we will have to use a `constructor`. To use `props` we have to make note of the context by using `this`. 
 
+- Apart from `props` class component can maintain a private internal `state`.
 - Preferable when logic is quite complex.
+
+### Functional vs Class Component
+
+![fun-v-class](./assets/functional-v-class.png)
+
+> Note since, React 16.8, hook lets you use state and other React features without writing a class. Click [here](https://reactjs.org/docs/hooks-intro.html) to learn more.
