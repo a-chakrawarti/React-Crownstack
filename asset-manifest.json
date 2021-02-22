@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/React-Crownstack/static/css/main.bb5c2dae.chunk.css",
-    "main.js": "/React-Crownstack/static/js/main.7098597a.chunk.js",
-    "main.js.map": "/React-Crownstack/static/js/main.7098597a.chunk.js.map",
+    "main.css": "/React-Crownstack/static/css/main.11135095.chunk.css",
+    "main.js": "/React-Crownstack/static/js/main.f3c55b17.chunk.js",
+    "main.js.map": "/React-Crownstack/static/js/main.f3c55b17.chunk.js.map",
     "runtime-main.js": "/React-Crownstack/static/js/runtime-main.1866d107.js",
     "runtime-main.js.map": "/React-Crownstack/static/js/runtime-main.1866d107.js.map",
-    "static/js/2.df95dc4c.chunk.js": "/React-Crownstack/static/js/2.df95dc4c.chunk.js",
-    "static/js/2.df95dc4c.chunk.js.map": "/React-Crownstack/static/js/2.df95dc4c.chunk.js.map",
+    "static/js/2.64467561.chunk.js": "/React-Crownstack/static/js/2.64467561.chunk.js",
+    "static/js/2.64467561.chunk.js.map": "/React-Crownstack/static/js/2.64467561.chunk.js.map",
     "static/js/3.38f7a30b.chunk.js": "/React-Crownstack/static/js/3.38f7a30b.chunk.js",
     "static/js/3.38f7a30b.chunk.js.map": "/React-Crownstack/static/js/3.38f7a30b.chunk.js.map",
     "index.html": "/React-Crownstack/index.html",
-    "static/css/main.bb5c2dae.chunk.css.map": "/React-Crownstack/static/css/main.bb5c2dae.chunk.css.map",
-    "static/js/2.df95dc4c.chunk.js.LICENSE.txt": "/React-Crownstack/static/js/2.df95dc4c.chunk.js.LICENSE.txt"
+    "static/css/main.11135095.chunk.css.map": "/React-Crownstack/static/css/main.11135095.chunk.css.map",
+    "static/js/2.64467561.chunk.js.LICENSE.txt": "/React-Crownstack/static/js/2.64467561.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1866d107.js",
-    "static/js/2.df95dc4c.chunk.js",
-    "static/css/main.bb5c2dae.chunk.css",
-    "static/js/main.7098597a.chunk.js"
+    "static/js/2.64467561.chunk.js",
+    "static/css/main.11135095.chunk.css",
+    "static/js/main.f3c55b17.chunk.js"
   ]
 }
