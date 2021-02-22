@@ -4,6 +4,7 @@ import "./App.css";
 import Todos from "./components/Todos"; // default export
 import { Greet } from "./components/Greet"; // named export
 import Counter from './components/Counter';
+import FunctionClick from './components/FunctionClick';
 
 // functional component
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Greet name="Anupam passing props" action="by destructing them in the parameter" />
       <Greet name="Value passed from App Component" />
       <Counter />
+      <FunctionClick/>
     </div>
   );
 }

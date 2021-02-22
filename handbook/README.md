@@ -122,7 +122,7 @@ render() {
 
 ```javascript
 functionCall () {
-  this.setState(prevState => {
+  this.setState(prevState => { // prevState is just holding the currentValues of state object 
     count: prevState.count + 1
   })
 }
