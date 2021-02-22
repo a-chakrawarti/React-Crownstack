@@ -12,18 +12,16 @@ function App() {
       <Todos type="Class" />
       <br />
       <Greet name="Functional Class">
-        <p>
           <ul>
             <li>
               We can pass `props` as an argument to the function and reuse the
               component by changing the attributes.
             </li>
           </ul>
-        </p>
       </Greet>
-      <Greet name="Anupam passing props" />
+      <Greet name="Anupam passing props" action="by destructing them in the parameter" />
       <Greet name="Value passed from App Component" />
-      <Counter/>
+      <Counter />
     </div>
   );
 }

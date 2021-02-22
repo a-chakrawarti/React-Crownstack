@@ -1,10 +1,10 @@
 import React from "react";
 
-export function Greet(props) {
+export function Greet({name, action, children}) {
   return (
     <div>
-      <h3>{props.name}</h3>
-      <pre>{props.children}</pre><br />
+      <h3>{name} {action}</h3>
+      <pre>{children}</pre><br />
     </div>
   );
 }
