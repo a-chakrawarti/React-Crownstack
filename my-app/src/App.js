@@ -5,6 +5,7 @@ import Todos from "./components/Todos"; // default export
 import { Greet } from "./components/Greet"; // named export
 import Counter from './components/Counter';
 import FunctionClick from './components/FunctionClick';
+import ClassClick from './components/ClassClick';
 
 // functional component
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Greet name="Value passed from App Component" />
       <Counter />
       <FunctionClick/>
+      <ClassClick/>
     </div>
   );
 }

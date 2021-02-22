@@ -4,13 +4,13 @@ import React from 'react'
 function FunctionClick() {
 
     function clickHandler() {
-        console.log('Event fired!')
+        console.log('Function component event fired!')
     }
         
 
     return (
         <div>
-            <button onClick={clickHandler}>Click Event</button>
+            Event Handling in functional component:<button onClick={clickHandler}>Click Event Function</button>
         </div>
     )
 }
