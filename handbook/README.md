@@ -115,7 +115,6 @@ render() {
 ![event-state-change](./assets/event-state-change.png)
 
 
-
 - If we redefine/reassign values to `this.state` object, it will change the value but won't re-render the component. To re-render the component with updated value, one must use `.setState` method and redefine the `this.state` object. That's why we shouldn't modify the `state` directly. `this.state` must be in the constructor and whenever we will need to update the value, `setState()` method has to be used. Call to `setState()` is asynchronous. `setState()` method accepts two parameters, one is state object and another is a callback function.
 - Make use of callback function of `setState` method to execute anything that needs to run after the re-rendering the component. If not done as a callback fuction, the code after `setState` may run before the state is set as `setState` is a asynchronous method.
 - React may group multiple `setState` calls into a single update for better performance. To get around this behaviour instead of reassigning the value of current `this.state` object in `setState` directly, like we would have done previously, we would make use of `prevState` or pass in a function as an argument instead of the regular object.

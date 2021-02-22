@@ -24,7 +24,7 @@ function App() {
       <Greet name="Anupam passing props" action="by destructing them in the parameter" />
       <Greet name="Value passed from App Component" />
       <Counter />
-      <FunctionClick/>
+      {/* <FunctionClick/> */}
       <ClassClick/>
     </div>
   );

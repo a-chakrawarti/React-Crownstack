@@ -1,14 +1,17 @@
 import React from 'react';
+import FunctionClick from './FunctionClick';
 
 // class component
 class Todos extends React.Component {
 
     constructor(props) {
-        super();
+        super(props);
         this.state = {
-            message: 'Hello, this is Todo!'
+            message: 'Hello, this is Todo!',
+            parentName: 'Todojs'
         }
 
+        this.greetParent = this.greetParent.bind(this);
         // this.changeMessage = this.changeMessage.bind(this); // binding in the constructor
     }
 
@@ -24,6 +27,10 @@ class Todos extends React.Component {
         })
     }
 
+    greetParent(childName) {
+        alert(`Hello ${this.state.parentName} from ${childName}`)
+    }
+
     render() {
         const {type} = this.props; // destructuring props and get only those you require
         const {message} = this.state; // destructuring state object
@@ -36,6 +43,7 @@ class Todos extends React.Component {
                 {/* <button onClick = { () => this.changeMessage() }>Change Message</button> // simple, arrow function, this to has performance issue */}
                 {/* <button onClick = { this.changeMessage }>Change Message</button> // binding in the constructor, recommended */}
                 <button onClick = { this.changeMessageTwo }>Change Message</button>
+                <FunctionClick greetHandler = { this.greetParent }/>
             </div>
         );
     }
