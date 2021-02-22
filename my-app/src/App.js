@@ -3,6 +3,7 @@ import "./App.css";
 
 import Todos from "./components/Todos"; // default export
 import { Greet } from "./components/Greet"; // named export
+import Counter from './components/Counter';
 
 // functional component
 function App() {
@@ -22,6 +23,7 @@ function App() {
       </Greet>
       <Greet name="Anupam passing props" />
       <Greet name="Value passed from App Component" />
+      <Counter/>
     </div>
   );
 }

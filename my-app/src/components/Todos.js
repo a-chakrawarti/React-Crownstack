@@ -22,7 +22,7 @@ class Todos extends React.Component {
                 <h1>Todos</h1>
                 <p>This is a { this.props.type } based Component</p><br />
                 <h3>Message: { this.state.message }</h3>
-                <button onClick = {() => this.changeMessage()}>Change Message</button>
+                <button onClick = { () => this.changeMessage() }>Change Message</button>
             </div>
         );
     }

@@ -114,6 +114,10 @@ render() {
 
 ![event-state-change](./assets/event-state-change.png)
 
+
+
+If we redefine/reassign values to `this.state` object, it will change the value but won't re-render the UI. To re-render the UI with updated value, one must use `.setState` method and redefine the `this.state` object. That's why we shouldn't modify the `state` directly. `this.state` must be in the constructor and whenever we will need to update the value, `setState()` method has to be used.
+
 ## `props` vs `state`
 
 ![props-v-state](./assets/props-v-state.png)
