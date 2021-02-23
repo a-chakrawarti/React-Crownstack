@@ -4,8 +4,9 @@ import "./App.css";
 import Todos from "./components/Todos"; // default export
 import { Greet } from "./components/Greet"; // named export
 import Counter from './components/Counter';
-import FunctionClick from './components/FunctionClick';
+// import FunctionClick from './components/FunctionClick';
 import ClassClick from './components/ClassClick';
+import Login from './components/Login';
 
 // functional component
 function App() {
@@ -25,7 +26,8 @@ function App() {
       <Greet name="Value passed from App Component" />
       <Counter />
       {/* <FunctionClick/> */}
-      <ClassClick/>
+      <ClassClick/><br/><br/>
+      <Login />
     </div>
   );
 }
