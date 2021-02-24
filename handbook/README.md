@@ -212,3 +212,22 @@ class ClassComponent extends Component {
 ![fun-v-class](./assets/functional-v-class.png)
 
 > Note since, React 16.8, hook lets you use state and other React features without writing a class. Click [here](https://reactjs.org/docs/hooks-intro.html) to learn more.
+
+## Rendering Elements
+
+- While rendering a list of items in DOM using react, one needs pass unique key associated with the value while rendering. Here is why,
+
+![render-list-keys](./assets/render-list-keys.png)
+
+Having a unique key associated with each value helps react update only that part of the compoment instead of re-rendering the entire list component. This improves performance.
+
+## Styling React Components
+
+1. CSS Stylesheet: Applied to the children component
+2. Inline Stylesheet
+3. CSS Module: Cannot be used in the children component. Cannot be used in other component by mistake.
+4. CSS in JS Libraries (Styled Components)
+
+## Controlled Components
+
+The form elements controlled by React is called a controlled component. 

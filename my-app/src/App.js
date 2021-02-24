@@ -7,6 +7,10 @@ import Counter from './components/Counter';
 // import FunctionClick from './components/FunctionClick';
 import ClassClick from './components/ClassClick';
 import Login from './components/Login';
+import RenderList from './components/RenderList';
+import Stylesheet from './components/Stylesheet'
+import Form from './components/Form';
+
 
 // functional component
 function App() {
@@ -22,12 +26,15 @@ function App() {
             </li>
           </ul>
       </Greet>
-      <Greet name="Anupam passing props" action="by destructing them in the parameter" />
+      <Greet name="Anupam passing props" action="by destructuring them in the parameter" />
       <Greet name="Value passed from App Component" />
       <Counter />
       {/* <FunctionClick/> */}
       <ClassClick/><br/><br/>
+      <Form />
       <Login />
+      <RenderList />
+      <Stylesheet />
     </div>
   );
 }
