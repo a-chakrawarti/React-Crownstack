@@ -231,3 +231,18 @@ Having a unique key associated with each value helps react update only that part
 ## Controlled Components
 
 The form elements controlled by React is called a controlled component. 
+
+## Lifecycle Methods
+
+A react component goes through several stages in its lifecycle. There are built-in methods to override lifecycle. Exists only in class components.
+
+1. **Mounting**: When instance of a component is being created and insert into the DOM.
+2. **Updating**: When the component is being re-rendered as a result of changes to either its props or state.
+3. **Unmounting**: When the component is being removed from the DOM.
+4. **Error handling**: When there is an error during rendering, in a lifecycle method, or in constructor of any child component.
+
+
+
+Here are the methods in each lifecycle stage of a class based component.
+
+![lifecycle-methods](./assets/lifecycle-methods.png)
