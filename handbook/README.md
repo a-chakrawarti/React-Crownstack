@@ -237,11 +237,16 @@ The form elements controlled by React is called a controlled component.
 A react component goes through several stages in its lifecycle. There are built-in methods to override lifecycle. Exists only in class components.
 
 1. **Mounting**: When instance of a component is being created and insert into the DOM.
+  - `constructor()`:
+  ![constructor](./assets/lcm-mounting.png)
+  - `static getDerivedStatefromProps(props, state)`: When the state of a component depends on changes in props over time. Set the state by returning the new state object not similar to `this.setState()`.
+  - `render()`:
+  ![render](./assets/lcm-mounting-render.png)
+  - `componentDidMount()`: Called only once in a component's lifecycle.
+  ![cdm](./assets/lcm-mounting-cDM.png)
 2. **Updating**: When the component is being re-rendered as a result of changes to either its props or state.
 3. **Unmounting**: When the component is being removed from the DOM.
 4. **Error handling**: When there is an error during rendering, in a lifecycle method, or in constructor of any child component.
-
-
 
 Here are the methods in each lifecycle stage of a class based component.
 
