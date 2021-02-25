@@ -236,6 +236,11 @@ The form elements controlled by React is called a controlled component.
 
 A react component goes through several stages in its lifecycle. There are built-in methods to override lifecycle. Exists only in class components.
 
+
+Here are the methods in each lifecycle stage of a class based component.
+
+![lifecycle-methods](./assets/lifecycle-methods.png)
+
 1. **Mounting**: When instance of a component is being created and insert into the DOM.
   - `constructor()`:
   ![constructor](./assets/lcm-mounting.png)
@@ -245,9 +250,20 @@ A react component goes through several stages in its lifecycle. There are built-
   - `componentDidMount()`: Called only once in a component's lifecycle.
   ![cdm](./assets/lcm-mounting-cDM.png)
 2. **Updating**: When the component is being re-rendered as a result of changes to either its props or state.
+  - `static getDerivedStateFromProps(props, state)`:
+  ![getDSFP](./assets/lcm-updating-getDSFP.png)
+  - `shouldComponentUpdate(nextProps, nextState)`:
+  Compare the existing state and props values with next Props and state values and return `True` or `False` to let react know if the component should update or not.
+  ![sCU](./assets/lcm-updating-sCU.png)
+  - `render()`: Same as above.
+  - `getSnapshotBeforeUpdate(prevProps, prevState)`:
+  ![gSBU](./assets/lcm-updating-gSBU.png) 
+  - `componentDidUpdate(prevProps, prevState, snapshot)`: Can make AJAX calls but needs to compare previous state, props with next state, props. It is called once after the component re-renders.
+  ![cDU](./assets/lcm-updating-cDU.png)
 3. **Unmounting**: When the component is being removed from the DOM.
-4. **Error handling**: When there is an error during rendering, in a lifecycle method, or in constructor of any child component.
-
-Here are the methods in each lifecycle stage of a class based component.
-
-![lifecycle-methods](./assets/lifecycle-methods.png)
+  - `componentWillUnmount()`: Method is invoked immediately before a component is unmounted and destroyed. 
+    - Can perform some cleanup tasks like cancelling any network requests, removing event handlers, cancelling any subscriptions and also invalidating timers.
+    - Do not call the `setState` method. Never re-renders after the component is unmounted.
+4. **Error handling**: When there is an error during rendering, in a lifecycle method, or in constructor of any child component. Will be discussed during Error boundaries in React.
+  - `static getDerivedStateFromError(error)`
+  - `componentDidCatch(error, info)`
