@@ -11,13 +11,15 @@ Angular has a built in routing system and react doesn't but could be installed "
 
 # React Fundamentals
 
-- [pacakage.json]()
+- [package.json]()
 - [Why use React]()
 - [JSX: JavaScript XML]()
 - [props & State]()
 - [Functional and Class Components]()
 - [Styling React Components]()
 - [Lifecycle Methods]()
+
+<hr>
 
 ## package.json
 
@@ -38,6 +40,7 @@ It is a manifest file that has information about our app like the dependencies/p
     }
 }
 ```
+<hr>
 
 ## Why use React?
 
@@ -66,6 +69,7 @@ Rendering `App` component `src -> App.js` into the element with `id=root` from `
 Inside the `App.js` we have a render method (life-cycle method), only method that is required to render components in the browser which returns JSX. 
 In JSX, instead of `<div class="name"></div>` we would be writing `<div className="name"></div>`.
 
+<hr>
 
 ## JSX: JavaScript XML
 
@@ -104,6 +108,8 @@ ReactDOM.render(
 
 > Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
 For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabIndex`.
+
+<hr>
 
 ## props
 
@@ -178,7 +184,7 @@ Both props and state hold information that influences the UI in the browser.
 
 ### Downward and Upward Data Flow : TO_DO
 
-
+<hr>
 
 ## Functional Components & Class Components
 Components describe a part of user interface.
@@ -191,6 +197,7 @@ Rendering logic coupled with other UI logic. Markup and logic in same file, reac
 
 Components are independent and reusable bits of code.
 
+<hr>
 
 ### Functional Components
 
@@ -200,6 +207,8 @@ Components are independent and reusable bits of code.
 - Used for UI purpose.
 
 ![fc-pc](./assets/fc-picturecomponent.png)
+
+<hr>
 
 ### Class Components
 
@@ -229,12 +238,15 @@ class ClassComponent extends Component {
 
 - Apart from `props` class component can maintain a private internal `state`.
 - Preferable when logic is quite complex.
+<hr>
 
 ### Functional vs Class Component
 
 ![fun-v-class](./assets/functional-v-class.png)
 
 > Note since, React 16.8, hook lets you use state and other React features without writing a class. Click [here](https://reactjs.org/docs/hooks-intro.html) to learn more.
+
+<hr>
 
 ## Rendering Elements
 
@@ -244,6 +256,8 @@ class ClassComponent extends Component {
 
 Having a unique key associated with each value helps react update only that part of the compoment instead of re-rendering the entire list component. This improves performance.
 
+<hr>
+
 ## Styling React Components
 
 1. CSS Stylesheet: Applied to the children component
@@ -251,9 +265,13 @@ Having a unique key associated with each value helps react update only that part
 3. CSS Module: Cannot be used in the children component. Cannot be used in other component by mistake.
 4. CSS in JS Libraries (Styled Components)
 
+<hr>
+
 ## Controlled Components
 
 The form elements controlled by React is called a controlled component. 
+
+<hr>
 
 ## Lifecycle Methods
 
@@ -291,9 +309,55 @@ Here are the methods in each lifecycle stage of a class based component.
   - `static getDerivedStateFromError(error)`
   - `componentDidCatch(error, info)`
 
+<hr>
+
 # React Advance
 
 ## Fragments
 
 A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
 Only key attribute can be passed in `React.Fragment`. We can also use just `<> JSX </>` but with limitation that we won't be able to specify `key` attribute.
+
+## Pure Component
+
+Works only on class based components.
+
+![pure-component](./assets/pure-component.png)
+
+A pure component implements `shouldComponentUpdate` with a shallow prop and state comparison. Prevents unnecessary re-renders gives performance boost in certain scenarios
+
+![shallow-comparison](./assets/shallow-comparison.png)
+
+Re-renders the component only when there is difference in
+
+- SC of prevState with currenState
+- SC of prevProps with currentProps
+
+If there is no difference, the component is not re-rendered thereby providing a performance boost.
+
+
+Never mutate the state. Always return a new object that reflects the new state.
+
+## React.memo
+
+This is a [higher order component](https://reactjs.org/docs/higher-order-components.html). Introduced in React v16.6.
+- Same as above "Pure Component" but for functional components.
+- Accepts component, add some things to the component and returns a new enhanced component. `export default React.memo(ComponentName)`
+
+## Refs
+
+Makes it possible to access DOM nodes directly within React.
+- Attach a `ref` attribute to the element, 
+`<input type = "text" ref = {this.focusUsername} />`
+- Define the same in the component constructor.
+`this.focusUsername = React.createRef()`
+- Now set the property within mounting lifecycle method didComponentMount: 
+`this.focusUsername.current.focus()`
+
+> Same can be achieved using callback Refs.
+
+# Useful articles & videos I came across
+
+- [Fetching Data in React](https://blog.bitsrc.io/fetching-data-in-react-using-hooks-c6fdd71cb24a)
+- [Youtube: Axios with React](https://www.youtube.com/watch?v=oQnojIyTXb8)
+
