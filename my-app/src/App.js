@@ -7,9 +7,9 @@ import Counter from './components/Counter';
 // import FunctionClick from './components/FunctionClick';
 import ClassClick from './components/ClassClick';
 import Login from './components/Login';
-import RenderList from './components/RenderList';
 import Stylesheet from './components/Stylesheet'
 import Form from './components/Form';
+import Demo from './components/RenderList'
 
 
 // functional component
@@ -33,8 +33,9 @@ function App() {
       <ClassClick/><br/><br/>
       <Form />
       <Login />
-      <RenderList />
       <Stylesheet />
+
+      <Demo />
     </div>
   );
 }

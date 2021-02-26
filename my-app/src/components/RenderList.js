@@ -1,31 +1,41 @@
-import React from 'react';
+import React, {Component } from 'react'
 
-// look into how to fetch data and populate the DOM with data from it. using state on class component or hooks on functional to re-render the component
-// promise is fullfilled. Use map array method to go through the list and take the value as well as index to update the list in the DOM.
+class RenderList extends Component {
+    constructor(props) {
+        super(props)
 
-// Note: make the main function Asynchronous and try AGAIN!
-function RenderList() {
-    var data;
-    function fetchData() {
-        async function getData() {
-            const url = 'https://api.github.com/users';
-            let response = await fetch(url);
-            data = await response.json();
-            return data;
+        this.state = {
+            users: []
         }
-        getData();
-        return setTimeout(()=>console.log(data), 1500);
+
     }
 
-    fetchData();
-    console.log(data);
+    loadData = async () => {
+        const url = 'https://api.github.com/users';
+        let response = await fetch(url);
+        let data = await response.json();
+        this.setState({
+            users: data
+        })
+    }
 
-    return (
-        <div>
-        <h3>Rendering List fetched from https://api.github.com/users</h3>
-        <ul></ul>
-        </div>
-    )
+    clickButton = {
+        padding: '10px'
+    }
+
+    render() {
+        return (
+            <div>
+                <h3>Rendering List fetched from https://api.github.com/users</h3>
+                <button style = { this.clickButton } onClick={ () => this.loadData() }>Click here to load data</button>
+                <ul>
+                    {this.state.users.map(user => <li key={user.id}>{user.login}</li>)}
+                </ul>
+            </div>
+            
+        )
+    }
 }
+
 
 export default RenderList;
