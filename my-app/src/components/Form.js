@@ -10,6 +10,12 @@ class Form extends Component {
             comment: '',
             framework: 'react'
         }
+
+        this.focusUsername = React.createRef()
+    }
+
+    componentDidMount() {
+        this.focusUsername.current.focus();
     }
 
     handleUsernameChange = (event) => {
@@ -47,7 +53,7 @@ class Form extends Component {
                 <h3>Controlled Component</h3>
                 <form onSubmit={this.handleSubmit}>
                     <label>Username: </label>
-                    <input type="text" value = {username} onChange={this.handleUsernameChange}/>
+                    <input type="text" value = {username} onChange={this.handleUsernameChange} ref={this.focusUsername}/>
 
                     <div>
                         <label>Comments: </label>
