@@ -1,24 +1,14 @@
 import React, {Component } from 'react'
+import FragmentRenderList from './FragmentRenderList';
 
 class RenderList extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            users: [],
-            persons: []
+            users: []
         }
 
-    }
-
-    componentDidMount() {
-        const url = 'http://jsonplaceholder.typicode.com/users'
-        let response = fetch(url)
-        response.then(data => data.json()).then(
-            data => this.setState({
-                persons: data
-            })
-        )
     }
 
     loadData = async () => {
@@ -37,10 +27,7 @@ class RenderList extends Component {
     render() {
         return (
             <div>
-                <h4>Loading data while mounting</h4>
-                <ul>
-                    {this.state.persons.map(person => <li key={person.id}>{`${person.name} - ${person.email.toLowerCase()}`}</li>)}
-                </ul>
+                <FragmentRenderList />
                 <br/>
                 <h4>Rendering List fetched from https://api.github.com/users</h4>
                 <button style = { this.clickButton } onClick={ () => this.loadData() }>Click here to load data</button>

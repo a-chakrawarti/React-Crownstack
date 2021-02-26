@@ -9,6 +9,36 @@ React is referred to as a front-end framework as it is comparable to frameworks 
 
 Angular has a built in routing system and react doesn't but could be installed "react-router-dom". It has it own ecosystem of packages to make it a full-fledged framework.
 
+# React Fundamentals
+
+- [pacakage.json]()
+- [Why use React]()
+- [JSX: JavaScript XML]()
+- [props & State]()
+- [Functional and Class Components]()
+- [Styling React Components]()
+- [Lifecycle Methods]()
+
+## package.json
+
+It is a manifest file that has information about our app like the dependencies/packages that are being used.
+```javascript
+{
+    "dependencies": {
+        "react": "^17.0.1", // the library itself
+        "react-dom": "^17.0.1", // deals with loading components in the browser, alternative to this is react-native for mobile
+        "react-scripts": "4.0.2", // dev server, compile our apps, test 
+    },
+
+    "scripts": {
+        "start": "react-scripts start" , // start dev server, offers hot-reload 
+        "build": "react-scripts build", // compiling before deploying, npm run build
+        "test": "react-scripts test",
+        "eject": "react-scripts eject" // customize webpack file 
+    }
+}
+```
+
 ## Why use React?
 
 - React structures the "View" layer in MVC design pattern. Model deals with the data and Controller deals with the requests & routing.
@@ -148,25 +178,7 @@ Both props and state hold information that influences the UI in the browser.
 
 ### Downward and Upward Data Flow : TO_DO
 
-## package.json
 
-It is a manifest file that has information about our app like the dependencies/packages that are being used.
-```json
-{
-    "dependencies": {
-        "react": "^17.0.1", /* the library itself */
-        "react-dom": "^17.0.1", /* deals with loading components in the browser, alrenative to this there is react-native for mobile */
-        "react-scripts": "4.0.2", /* dev server, compile our apps, test */
-    },
-
-    "scripts": {
-        "start": "react-scripts start" , /* start dev server, offers hot-reload */
-        "build": "react-scripts build", /* compiling before deploying, npm run build */
-        "test": "react-scripts test",
-        "eject": "react-scripts eject" /* customize webpack file */
-    }
-}
-```
 
 ## Functional Components & Class Components
 Components describe a part of user interface.
@@ -278,3 +290,10 @@ Here are the methods in each lifecycle stage of a class based component.
 4. **Error handling**: When there is an error during rendering, in a lifecycle method, or in constructor of any child component. Will be discussed during Error boundaries in React.
   - `static getDerivedStateFromError(error)`
   - `componentDidCatch(error, info)`
+
+# React Advance
+
+## Fragments
+
+A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+Only key attribute can be passed in `React.Fragment`. We can also use just `<> JSX </>` but with limitation that we won't be able to specify `key` attribute.
