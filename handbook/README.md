@@ -119,6 +119,8 @@ render() {
 - Make use of callback function of `setState` method to execute anything that needs to run after the re-rendering the component. If not done as a callback fuction, the code after `setState` may run before the state is set as `setState` is a asynchronous method.
 - React may group multiple `setState` calls into a single update for better performance. To get around this behaviour instead of reassigning the value of current `this.state` object in `setState` directly, like we would have done previously, we would make use of `prevState` or pass in a function as an argument instead of the regular object.
 
+- [Understanding React setState - Medium Article](https://medium.com/@baphemot/understanding-reactjs-setstate-a4640451865b)
+
 ```javascript
 functionCall () {
   this.setState(prevState => { // prevState is just holding the currentValues of state object 
@@ -126,6 +128,15 @@ functionCall () {
   })
 }
 ```
+
+- `setState` accepts a function as its parameter. If you pass a function as the first argument of setState, React will call it with the at-call-time-current state and expect you to return an Object to merge into state. So updating our example above to:
+```javascript
+// assuming this.state = { value: 0 };
+this.setState((state) => ({ value: state.value + 1}));
+this.setState((state) => ({ value: state.value + 1}));
+this.setState((state) => ({ value: state.value + 1}));
+```
+Will give us `this.state.value = 3` like we expected in the first place. Remember to always use this syntax when updating state to a value, which is computed based on previous state!
 
 ## `props` vs `state`
 
