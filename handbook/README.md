@@ -397,6 +397,20 @@ Provide a way to gracefully handle error in application code.
 - Error boundary catch errors during rendering in lifecycle methods and in the constructors of the whole tree below them. Do not catch error inside event handlers.
 On using something like `onClick`, we will have to use `try-catch` not error boundary.
 
+## Higher Order Components - HOC
+A pattern where a function takes a component as an argument and returns a new component.
+
+- Syntax
+```javascript
+const NewComponent = higherOrderComponent( originalComponent )
+const EnchancedComponent = higherOrderComponent( originalComponent )
+
+const IronMan = withSuit( TonyStark )
+```
+
+### Why HOC?
+Share common functionality between components without repeatng code.
+
 # Useful articles & videos I came across
 
 - [Fetching Data in React](https://blog.bitsrc.io/fetching-data-in-react-using-hooks-c6fdd71cb24a)
