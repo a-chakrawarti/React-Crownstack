@@ -356,6 +356,28 @@ Makes it possible to access DOM nodes directly within React.
 
 > Same can be achieved using callback Refs.
 
+- Refs cannot be attached to functional components.
+
+- Refs from parent to child is achievable using class components. [Click here](https://www.youtube.com/watch?v=8aCXVC9Qmto&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=29)
+
+### Forwarding Refs
+
+A technique to automatically pass a ref through a component to one of its children.
+Using of `React.forwardRef`. Used in some library or higher order components.
+
+
+## Portals
+
+- Provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component. 
+- Ability to breakout of `id = "root"` DOM tree.
+- The first parameter to `React.createPortal` can be any element that react can render, can be number, strings, JSX and even components.
+
+### Why use Portals?
+
+- Having to deal with parent component CSS, when the child component is a modal, popup or a tooltip.
+- Event fired from inside a portal, propagates to ancestors in containing react tree, event bubbling still works.
+- Portal behaves like a normal react child in every other way.
+
 # Useful articles & videos I came across
 
 - [Fetching Data in React](https://blog.bitsrc.io/fetching-data-in-react-using-hooks-c6fdd71cb24a)
