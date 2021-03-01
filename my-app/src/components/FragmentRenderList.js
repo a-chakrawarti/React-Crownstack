@@ -10,7 +10,7 @@ class FragmentRenderList extends React.Component {
   }
 
   componentDidMount() {
-    const url = "http://jsonplaceholder.typicode.com/users";
+    const url = "https://jsonplaceholder.typicode.com/users";
     let response = fetch(url);
     response
       .then((data) => data.json())
@@ -39,7 +39,8 @@ class FragmentRenderList extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h4>Loading data while mounting</h4>
+        <br/>
+        <h4>Loading data while mounting from <span style ={{color: 'red'}}>https://jsonplaceholder.typicode.com/users</span></h4>
         <ul style = { this.bullet }>
           {this.state.persons.map((person) => (
             <li key={person.id} style = {this.items}>{`${person.name} - ${person.email.toLowerCase()}`}</li>
