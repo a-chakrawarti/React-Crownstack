@@ -9,7 +9,8 @@ import ClassClick from './components/ClassClick';
 import Login from './components/Login';
 import Stylesheet from './components/Stylesheet'
 import Form from './components/Form';
-import Demo from './components/RenderList'
+import RenderList from './components/RenderList'
+import PortalApp from "./components/PortalApp";
 
 
 // functional component
@@ -34,8 +35,8 @@ function App() {
       <Form />
       <Login />
       <Stylesheet />
-
-      <Demo />
+      <RenderList />
+      <PortalApp />
     </div>
   );
 }
