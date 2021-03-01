@@ -378,6 +378,25 @@ Using of `React.forwardRef`. Used in some library or higher order components.
 - Event fired from inside a portal, propagates to ancestors in containing react tree, event bubbling still works.
 - Portal behaves like a normal react child in every other way.
 
+## Error Boundary
+
+Error boundaries are React components that catch JavaScript error in their child component tree, log those errors and displays a fallback UI.
+
+
+A class component that implements either one or both of the lifecycle methods `getDerivedStateFromError` or `componentDidCatch` becomes an **error boundary**.
+Catch the errors anywhere in component tree and display a fallback UI.
+
+- `static getDerivedStateFromError` is used to render a fallback UI after an error is thrown.
+
+- `componentDidCatch` is used to log the error information.
+
+Provide a way to gracefully handle error in application code.
+
+- The placement of the Error Boundary also matter as it controls if the entire app should have the fallback UI or just the component causing the problem.
+
+- Error boundary catch errors during rendering in lifecycle methods and in the constructors of the whole tree below them. Do not catch error inside event handlers.
+On using something like `onClick`, we will have to use `try-catch` not error boundary.
+
 # Useful articles & videos I came across
 
 - [Fetching Data in React](https://blog.bitsrc.io/fetching-data-in-react-using-hooks-c6fdd71cb24a)
