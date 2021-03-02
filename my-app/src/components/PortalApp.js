@@ -4,6 +4,8 @@ import Avengers from './Avengers'
 import ErrorBoundary from './ErrorBoundary';
 import ComponentA from './context-api/ComponentA'
 import { UserProvider } from './userContext';
+import PostList from './PostList'
+import PostForm from './PostForm';
 
 function PortalApp() {
     return ReactDOM.createPortal(
@@ -21,6 +23,8 @@ function PortalApp() {
             <UserProvider value="Iron-Man">
                 <ComponentA />
             </UserProvider>
+            <PostList />
+            <PostForm />
         </>,
         document.getElementById('portal-root')
     )
