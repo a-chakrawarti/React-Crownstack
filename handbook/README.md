@@ -400,16 +400,29 @@ On using something like `onClick`, we will have to use `try-catch` not error bou
 ## Higher Order Components - HOC
 A pattern where a function takes a component as an argument and returns a new component.
 
-- Syntax
-```javascript
-const NewComponent = higherOrderComponent( originalComponent )
-const EnchancedComponent = higherOrderComponent( originalComponent )
 
-const IronMan = withSuit( TonyStark )
-```
+Syntax :
+  ```javascript
+  const NewComponent = higherOrderComponent( originalComponent )
+  const EnchancedComponent = higherOrderComponent( originalComponent )
+
+  const IronMan = withSuit( TonyStark )
+  ```
 
 ### Why HOC?
 Share common functionality between components without repeatng code.
+
+## Context API
+
+![context](./assets/context.png)
+
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+### Cons of using contextType
+
+- We can use this process to access props only in class components</li>
+- We can subscribe to only single context</li>
+
 
 # Useful articles & videos I came across
 

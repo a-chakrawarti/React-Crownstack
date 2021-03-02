@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Avengers from './Avengers'
 import ErrorBoundary from './ErrorBoundary';
+import ComponentA from './context-api/ComponentA'
+import { UserProvider } from './userContext';
 
 function PortalApp() {
     return ReactDOM.createPortal(
@@ -16,6 +18,9 @@ function PortalApp() {
             <ErrorBoundary>
                 <Avengers codeName="Captain America"></Avengers>
             </ErrorBoundary>
+            <UserProvider value="Iron-Man">
+                <ComponentA />
+            </UserProvider>
         </>,
         document.getElementById('portal-root')
     )
