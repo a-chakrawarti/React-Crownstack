@@ -420,8 +420,8 @@ Context provides a way to pass data through the component tree without having to
 
 ### Cons of using contextType
 
-- We can use this process to access props only in class components</li>
-- We can subscribe to only single context</li>
+- We can use this process to access props only in class components
+- We can subscribe to only single context
 
 
 # Useful articles & videos I came across
