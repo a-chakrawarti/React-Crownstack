@@ -6,6 +6,9 @@ Before diving into code, get these tools and setup your environment.
 2. [React Developer Tools: Chrome Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 3. [React Boilerplate](https://github.com/facebook/create-react-app)
    - `npx create-react-app my-app` : allows us to use without installing it in our system
+4. [Axios: HTTP Library](https://www.npmjs.com/package/axios)
+
+![react-http](./handbook/assets/react-http.png)
    
    
    - While installing if you get the following error: 
