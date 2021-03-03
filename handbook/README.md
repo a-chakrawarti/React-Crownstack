@@ -9,17 +9,30 @@ React is referred to as a front-end framework as it is comparable to frameworks 
 
 Angular has a built in routing system and react doesn't but could be installed "react-router-dom". It has it own ecosystem of packages to make it a full-fledged framework.
 
+# Contents
+
+- React Fundamentals
+  - [package.json]()
+  - [Why use React]()
+  - [JSX: JavaScript XML]()
+  - [props & State]()
+  - [Functional and Class Components]()
+  - [Styling React Components]()
+  - [Lifecycle Methods]()
+
+- React Advance
+  - [Fragnents]()
+  - [Pure Components]()
+  - [memo]()
+  - [Refs]()
+  - [Portals]()
+  - [Error Boundary]()
+  - [Higher Order Components: HOC]()
+  - [Context API]()
+
+- React Hooks
+
 # React Fundamentals
-
-- [package.json]()
-- [Why use React]()
-- [JSX: JavaScript XML]()
-- [props & State]()
-- [Functional and Class Components]()
-- [Styling React Components]()
-- [Lifecycle Methods]()
-
-<hr>
 
 ## package.json
 
@@ -313,10 +326,13 @@ Here are the methods in each lifecycle stage of a class based component.
 
 # React Advance
 
+
 ## Fragments
 
 A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
 Only key attribute can be passed in `React.Fragment`. We can also use just `<> JSX </>` but with limitation that we won't be able to specify `key` attribute.
+
+<hr>
 
 ## Pure Component
 
@@ -338,11 +354,15 @@ If there is no difference, the component is not re-rendered thereby providing a 
 
 Never mutate the state. Always return a new object that reflects the new state.
 
+<hr>
+
 ## React.memo
 
 This is a [higher order component](https://reactjs.org/docs/higher-order-components.html). Introduced in React v16.6.
 - Same as above "Pure Component" but for functional components.
 - Accepts component, add some things to the component and returns a new enhanced component. `export default React.memo(ComponentName)`
+
+<hr>
 
 ## Refs
 
@@ -365,6 +385,7 @@ Makes it possible to access DOM nodes directly within React.
 A technique to automatically pass a ref through a component to one of its children.
 Using of `React.forwardRef`. Used in some library or higher order components.
 
+<hr>
 
 ## Portals
 
@@ -377,6 +398,8 @@ Using of `React.forwardRef`. Used in some library or higher order components.
 - Having to deal with parent component CSS, when the child component is a modal, popup or a tooltip.
 - Event fired from inside a portal, propagates to ancestors in containing react tree, event bubbling still works.
 - Portal behaves like a normal react child in every other way.
+
+<hr>
 
 ## Error Boundary
 
@@ -397,6 +420,8 @@ Provide a way to gracefully handle error in application code.
 - Error boundary catch errors during rendering in lifecycle methods and in the constructors of the whole tree below them. Do not catch error inside event handlers.
 On using something like `onClick`, we will have to use `try-catch` not error boundary.
 
+<hr>
+
 ## Higher Order Components - HOC
 A pattern where a function takes a component as an argument and returns a new component.
 
@@ -412,6 +437,8 @@ Syntax :
 ### Why HOC?
 Share common functionality between components without repeatng code.
 
+<hr>
+
 ## Context API
 
 ![context](./assets/context.png)
@@ -423,6 +450,19 @@ Context provides a way to pass data through the component tree without having to
 - We can use this process to access props only in class components
 - We can subscribe to only single context
 
+<hr>
+
+# React Hooks
+
+Hooks are a new feature addition in React version 16.8 which allow you to use React features without having to write a class. Ex. State of a component
+
+## Why Hooks?
+- The keywork `this` complicates things in react.
+- Bind event handlers in class components.
+- Classes don't minify very well and make hot reloading very unreliable.
+- Reusability with funky looking HOC & render props causes readability issues
+- Related code is not organized in one place for example on using context API, data fetching, event listeners in different/same lifecycle methods.
+- Because of stateful logic, cannot be broken into smaller ones
 
 # Useful articles & videos I came across
 
