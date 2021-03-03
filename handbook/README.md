@@ -464,6 +464,38 @@ Hooks are a new feature addition in React version 16.8 which allow you to use Re
 - Related code is not organized in one place for example on using context API, data fetching, event listeners in different/same lifecycle methods.
 - Because of stateful logic, cannot be broken into smaller ones
 
+## useState
+
+- A state variable can be a string, a number, a boolean, object or even an array.
+`const [count, setCount] = useState(0)`
+
+- The above syntax is Array Destructuring
+- Initialize a state "count" variable and set its initial value to 0.
+- Second value is a function which is similar to `setState()` method, used to set the value of "count" and render the component.
+
+```javascript
+<button onClick={() => setCount(count + 1)}>Count {count}</button>
+```
+
+- Anytime we need to update state value based on the previous state value, always pass in a function that will set a new state value. This is considered safe.
+
+  `setCount(prevCount => prevCount + 1)`
+
+- `useState` does not automatically merge and update the object which is a key difference to `setState` of class component. `setState` will merge the state, `useState` hook's setter function will not automatically merge and update the state object. We have to do it manually. We can use the spread operator to handle the manual merge.
+
+  ```javascript
+  const [name, setName] = useState({
+    firstName: '',
+    lastName: ''
+  })
+  ```
+
+- To merge and update the state
+
+  ```javascript
+  <input type="text" value={name.firstName} onChange={(event)=> setName({...name, firstName: event.target.value})}>
+  ```
+
 # Useful articles & videos I came across
 
 - [Fetching Data in React](https://blog.bitsrc.io/fetching-data-in-react-using-hooks-c6fdd71cb24a)
