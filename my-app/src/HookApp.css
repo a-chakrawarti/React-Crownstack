@@ -1,26 +1,32 @@
 body {
-    margin: 0;
-    background-color: #303030;
-    color: whitesmoke;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #303030;
+  color: whitesmoke;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .header {
-    margin: 0;
-    padding: 10px;
-    background-color: #3f3f3f;
-    text-align: center;
+  margin: 0;
+  padding: 10px;
+  background-color: #3f3f3f;
+  text-align: center;
 }
 
 .container {
-    padding: 10px;
+  padding: 10px;
 }
 
 .button {
-    background: green;
-    padding: 10px 15px;
-    color: whitesmoke;
-    border: none;
-    border-radius: 10px;
-    outline: none;
+  background: green;
+  padding: 10px 15px;
+  color: whitesmoke;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+.greet {
+  color: orangered;
+  font-size: large;
 }
