@@ -22,9 +22,10 @@ const InputName = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <input
         type="text"
+        placeholder="firstname"
         value={name.firstName}
         onChange={(event) =>
           setName({ ...name, firstName: event.target.value })
@@ -32,6 +33,7 @@ const InputName = () => {
       ></input>
       <input
         type="text"
+        placeholder="lastname"
         value={name.lastName}
         onChange={(event) => setName({ ...name, lastName: event.target.value })}
       ></input>
