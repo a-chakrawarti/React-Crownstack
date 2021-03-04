@@ -3,15 +3,14 @@
 React is **JavaScript library** for building rich user-interfaces.
 React runs on client as a single page application (SPA). That is `public -> index.html`.
 
-
 React is referred to as a front-end framework as it is comparable to frameworks like Angular or Vue.
-
 
 Angular has a built in routing system and react doesn't but could be installed "react-router-dom". It has it own ecosystem of packages to make it a full-fledged framework.
 
 # Contents
 
 - React Fundamentals
+
   - [package.json]()
   - [Why use React]()
   - [JSX: JavaScript XML]()
@@ -21,6 +20,7 @@ Angular has a built in routing system and react doesn't but could be installed "
   - [Lifecycle Methods]()
 
 - React Advance
+
   - [Fragnents]()
   - [Pure Components]()
   - [memo]()
@@ -37,22 +37,24 @@ Angular has a built in routing system and react doesn't but could be installed "
 ## package.json
 
 It is a manifest file that has information about our app like the dependencies/packages that are being used.
+
 ```javascript
 {
     "dependencies": {
         "react": "^17.0.1", // the library itself
         "react-dom": "^17.0.1", // deals with loading components in the browser, alternative to this is react-native for mobile
-        "react-scripts": "4.0.2", // dev server, compile our apps, test 
+        "react-scripts": "4.0.2", // dev server, compile our apps, test
     },
 
     "scripts": {
-        "start": "react-scripts start" , // start dev server, offers hot-reload 
+        "start": "react-scripts start" , // start dev server, offers hot-reload
         "build": "react-scripts build", // compiling before deploying, npm run build
         "test": "react-scripts test",
-        "eject": "react-scripts eject" // customize webpack file 
+        "eject": "react-scripts eject" // customize webpack file
     }
 }
 ```
+
 <hr>
 
 ## Why use React?
@@ -64,7 +66,7 @@ It is a manifest file that has information about our app like the dependencies/p
 - It structures the code base which make it easier to work in teams.
 - Data binding and immutable state, improves performanace and helps in debugging.
 
-`src -> index.js` is the entry point to react. 
+`src -> index.js` is the entry point to react.
 
 `import App from './App';` : App component that wraps around the entire application.
 
@@ -73,13 +75,13 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 ```
 
 Rendering `App` component `src -> App.js` into the element with `id=root` from `public -> index.html`. Glocal CSS file is `src -> App.css`.
 
-Inside the `App.js` we have a render method (life-cycle method), only method that is required to render components in the browser which returns JSX. 
+Inside the `App.js` we have a render method (life-cycle method), only method that is required to render components in the browser which returns JSX.
 In JSX, instead of `<div class="name"></div>` we would be writing `<div className="name"></div>`.
 
 <hr>
@@ -92,20 +94,17 @@ In JSX, instead of `<div class="name"></div>` we would be writing `<div classNam
 - We `import React from 'react';` on every component as `React.createElement` is used for JSX.
 
 ```javascript
-const name = 'Josh Perez';
+const name = "Josh Perez";
 const element = <h1>Hello, {name}</h1>;
 
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
+ReactDOM.render(element, document.getElementById("root"));
 ```
 
 - JSX needs to have only one top parent tag `<div>` enclosing everything. It cannot hold 2 top parent or siblings. Only one Root JSX Element returned by Component.
 
 - JSX follows XML rules, and therefore HTML elements must be properly closed.
 
-- JSX converts HTML tags into react elements. 
+- JSX converts HTML tags into react elements.
 
 - JSX elements are JS Objects.
 
@@ -115,19 +114,20 @@ ReactDOM.render(
 
 ![jsx-combine](./assets/jsx-combine.png)
 
-- JSX allows us to write HTML elements in JavaScript and place them in the DOM without any `createElement()`  and/or `appendChild()` methods.
+- JSX allows us to write HTML elements in JavaScript and place them in the DOM without any `createElement()` and/or `appendChild()` methods.
 
 ### Specifying Attributes with JSX
 
 > Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property naming convention instead of HTML attribute names.
-For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabIndex`.
+> For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabIndex`.
 
 <hr>
 
 ## props
 
 - `propTypes` does type validation of value in props of a component. We can also specify whether the prop is required or not and based on these warnings are raised. Considered "Good Practice".
-   - From React 15.5 `prop-types` need to be installed via NPM `npm i prop-types`. 
+
+  - From React 15.5 `prop-types` need to be installed via NPM `npm i prop-types`.
 
 - Default props: We can specify default values for a component using `defaultProps`. If we specify props then this will overwrite the default prop values.
 
@@ -135,8 +135,9 @@ For example, `class` becomes `className` in JSX, and `tabindex` becomes `tabInde
 - props are read-only. And hence, props are immutable that is their values cannot be changed.
 
 ## State
+
 ```javascript
-// `this.state` is used to make a object and is understood by React as state 
+// `this.state` is used to make a object and is understood by React as state
 this.state = {
   message: 'This is a message'
 }
@@ -157,12 +158,12 @@ render() {
   )
 }
 ```
-- State is nothing but an object that is privately maintained inside a component. 
-- State can influence what is rendered in the browser. 
+
+- State is nothing but an object that is privately maintained inside a component.
+- State can influence what is rendered in the browser.
 - State can be changed within the component.
 
 ![event-state-change](./assets/event-state-change.png)
-
 
 - If we redefine/reassign values to `this.state` object, it will change the value but won't re-render the component. To re-render the component with updated value, one must use `.setState` method and redefine the `this.state` object. That's why we shouldn't modify the `state` directly. `this.state` must be in the constructor and whenever we will need to update the value, `setState()` method has to be used. Call to `setState()` is asynchronous. `setState()` method accepts two parameters, one is state object and another is a callback function.
 - Make use of callback function of `setState` method to execute anything that needs to run after the re-rendering the component. If not done as a callback fuction, the code after `setState` may run before the state is set as `setState` is a asynchronous method.
@@ -172,41 +173,40 @@ render() {
 
 ```javascript
 functionCall () {
-  this.setState(prevState => { // prevState is just holding the currentValues of state object 
+  this.setState(prevState => { // prevState is just holding the currentValues of state object
     count: prevState.count + 1
   })
 }
 ```
 
 - `setState` accepts a function as its parameter. If you pass a function as the first argument of setState, React will call it with the at-call-time-current state and expect you to return an Object to merge into state. So updating our example above to:
+
 ```javascript
 // assuming this.state = { value: 0 };
-this.setState((state) => ({ value: state.value + 1}));
-this.setState((state) => ({ value: state.value + 1}));
-this.setState((state) => ({ value: state.value + 1}));
+this.setState((state) => ({ value: state.value + 1 }));
+this.setState((state) => ({ value: state.value + 1 }));
+this.setState((state) => ({ value: state.value + 1 }));
 ```
+
 Will give us `this.state.value = 3` like we expected in the first place. Remember to always use this syntax when updating state to a value, which is computed based on previous state!
 
 ## `props` vs `state`
 
 ![props-v-state](./assets/props-v-state.png)
 
-
 Both props and state hold information that influences the UI in the browser.
-
 
 ### Downward and Upward Data Flow : TO_DO
 
 <hr>
 
 ## Functional Components & Class Components
+
 Components describe a part of user interface.
 
 ![component](./assets/component.png)
 
-
 Rendering logic coupled with other UI logic. Markup and logic in same file, react [separates concerns](https://en.wikipedia.org/wiki/Separation_of_concerns) with loosely coupled units called "components".
-
 
 Components are independent and reusable bits of code.
 
@@ -225,13 +225,12 @@ Components are independent and reusable bits of code.
 
 ### Class Components
 
-- We will need to import {Component} from 'react' or make use of React.Component class and use a render() method to return JSX to render it in DOM. 
+- We will need to import {Component} from 'react' or make use of React.Component class and use a render() method to return JSX to render it in DOM.
 
 - Example:
 
 ```javascript
 class ClassComponent extends Component {
-
   constructor(props) {
     super();
   }
@@ -240,14 +239,14 @@ class ClassComponent extends Component {
       <div>
         <h1>This is a {this.prop.type} based Component.</h1>
       </div>
-    )
+    );
   }
 }
 
-<ClassComponent type="Class"/>
+<ClassComponent type="Class" />;
 ```
 
-- To pass `props` in class based component we will have to use a `constructor`. To use `props` we have to make note of the context by using `this`. 
+- To pass `props` in class based component we will have to use a `constructor`. To use `props` we have to make note of the context by using `this`.
 
 - Apart from `props` class component can maintain a private internal `state`.
 - Preferable when logic is quite complex.
@@ -282,7 +281,7 @@ Having a unique key associated with each value helps react update only that part
 
 ## Controlled Components
 
-The form elements controlled by React is called a controlled component. 
+The form elements controlled by React is called a controlled component.
 
 <hr>
 
@@ -290,42 +289,47 @@ The form elements controlled by React is called a controlled component.
 
 A react component goes through several stages in its lifecycle. There are built-in methods to override lifecycle. Exists only in class components.
 
-
 Here are the methods in each lifecycle stage of a class based component.
 
 ![lifecycle-methods](./assets/lifecycle-methods.png)
 
 1. **Mounting**: When instance of a component is being created and insert into the DOM.
-  - `constructor()`:
+
+- `constructor()`:
   ![constructor](./assets/lcm-mounting.png)
-  - `static getDerivedStatefromProps(props, state)`: When the state of a component depends on changes in props over time. Set the state by returning the new state object not similar to `this.setState()`.
-  - `render()`:
+- `static getDerivedStatefromProps(props, state)`: When the state of a component depends on changes in props over time. Set the state by returning the new state object not similar to `this.setState()`.
+- `render()`:
   ![render](./assets/lcm-mounting-render.png)
-  - `componentDidMount()`: Called only once in a component's lifecycle.
+- `componentDidMount()`: Called only once in a component's lifecycle.
   ![cdm](./assets/lcm-mounting-cDM.png)
+
 2. **Updating**: When the component is being re-rendered as a result of changes to either its props or state.
-  - `static getDerivedStateFromProps(props, state)`:
+
+- `static getDerivedStateFromProps(props, state)`:
   ![getDSFP](./assets/lcm-updating-getDSFP.png)
-  - `shouldComponentUpdate(nextProps, nextState)`:
+- `shouldComponentUpdate(nextProps, nextState)`:
   Compare the existing state and props values with next Props and state values and return `True` or `False` to let react know if the component should update or not.
   ![sCU](./assets/lcm-updating-sCU.png)
-  - `render()`: Same as above.
-  - `getSnapshotBeforeUpdate(prevProps, prevState)`:
-  ![gSBU](./assets/lcm-updating-gSBU.png) 
-  - `componentDidUpdate(prevProps, prevState, snapshot)`: Can make AJAX calls but needs to compare previous state, props with next state, props. It is called once after the component re-renders.
+- `render()`: Same as above.
+- `getSnapshotBeforeUpdate(prevProps, prevState)`:
+  ![gSBU](./assets/lcm-updating-gSBU.png)
+- `componentDidUpdate(prevProps, prevState, snapshot)`: Can make AJAX calls but needs to compare previous state, props with next state, props. It is called once after the component re-renders.
   ![cDU](./assets/lcm-updating-cDU.png)
+
 3. **Unmounting**: When the component is being removed from the DOM.
-  - `componentWillUnmount()`: Method is invoked immediately before a component is unmounted and destroyed. 
-    - Can perform some cleanup tasks like cancelling any network requests, removing event handlers, cancelling any subscriptions and also invalidating timers.
-    - Do not call the `setState` method. Never re-renders after the component is unmounted.
+
+- `componentWillUnmount()`: Method is invoked immediately before a component is unmounted and destroyed.
+  - Can perform some cleanup tasks like cancelling any network requests, removing event handlers, cancelling any subscriptions and also invalidating timers.
+  - Do not call the `setState` method. Never re-renders after the component is unmounted.
+
 4. **Error handling**: When there is an error during rendering, in a lifecycle method, or in constructor of any child component. Will be discussed during Error boundaries in React.
-  - `static getDerivedStateFromError(error)`
-  - `componentDidCatch(error, info)`
+
+- `static getDerivedStateFromError(error)`
+- `componentDidCatch(error, info)`
 
 <hr>
 
 # React Advance
-
 
 ## Fragments
 
@@ -351,7 +355,6 @@ Re-renders the component only when there is difference in
 
 If there is no difference, the component is not re-rendered thereby providing a performance boost.
 
-
 Never mutate the state. Always return a new object that reflects the new state.
 
 <hr>
@@ -359,6 +362,7 @@ Never mutate the state. Always return a new object that reflects the new state.
 ## React.memo
 
 This is a [higher order component](https://reactjs.org/docs/higher-order-components.html). Introduced in React v16.6.
+
 - Same as above "Pure Component" but for functional components.
 - Accepts component, add some things to the component and returns a new enhanced component. `export default React.memo(ComponentName)`
 
@@ -367,12 +371,13 @@ This is a [higher order component](https://reactjs.org/docs/higher-order-compone
 ## Refs
 
 Makes it possible to access DOM nodes directly within React.
-- Attach a `ref` attribute to the element, 
-`<input type = "text" ref = {this.focusUsername} />`
+
+- Attach a `ref` attribute to the element,
+  `<input type = "text" ref = {this.focusUsername} />`
 - Define the same in the component constructor.
-`this.focusUsername = React.createRef()`
-- Now set the property within mounting lifecycle method didComponentMount: 
-`this.focusUsername.current.focus()`
+  `this.focusUsername = React.createRef()`
+- Now set the property within mounting lifecycle method didComponentMount:
+  `this.focusUsername.current.focus()`
 
 > Same can be achieved using callback Refs.
 
@@ -389,7 +394,7 @@ Using of `React.forwardRef`. Used in some library or higher order components.
 
 ## Portals
 
-- Provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component. 
+- Provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 - Ability to breakout of `id = "root"` DOM tree.
 - The first parameter to `React.createPortal` can be any element that react can render, can be number, strings, JSX and even components.
 
@@ -405,7 +410,6 @@ Using of `React.forwardRef`. Used in some library or higher order components.
 
 Error boundaries are React components that catch JavaScript error in their child component tree, log those errors and displays a fallback UI.
 
-
 A class component that implements either one or both of the lifecycle methods `getDerivedStateFromError` or `componentDidCatch` becomes an **error boundary**.
 Catch the errors anywhere in component tree and display a fallback UI.
 
@@ -418,23 +422,25 @@ Provide a way to gracefully handle error in application code.
 - The placement of the Error Boundary also matter as it controls if the entire app should have the fallback UI or just the component causing the problem.
 
 - Error boundary catch errors during rendering in lifecycle methods and in the constructors of the whole tree below them. Do not catch error inside event handlers.
-On using something like `onClick`, we will have to use `try-catch` not error boundary.
+  On using something like `onClick`, we will have to use `try-catch` not error boundary.
 
 <hr>
 
 ## Higher Order Components - HOC
+
 A pattern where a function takes a component as an argument and returns a new component.
 
-
 Syntax :
-  ```javascript
-  const NewComponent = higherOrderComponent( originalComponent )
-  const EnchancedComponent = higherOrderComponent( originalComponent )
 
-  const IronMan = withSuit( TonyStark )
-  ```
+```javascript
+const NewComponent = higherOrderComponent(originalComponent);
+const EnchancedComponent = higherOrderComponent(originalComponent);
+
+const IronMan = withSuit(TonyStark);
+```
 
 ### Why HOC?
+
 Share common functionality between components without repeatng code.
 
 <hr>
@@ -457,6 +463,7 @@ Context provides a way to pass data through the component tree without having to
 Hooks are a new feature addition in React version 16.8 which allow you to use React features without having to write a class. Ex. State of a component
 
 ## Why Hooks?
+
 - The keywork `this` complicates things in react.
 - Bind event handlers in class components.
 - Classes don't minify very well and make hot reloading very unreliable.
@@ -466,28 +473,31 @@ Hooks are a new feature addition in React version 16.8 which allow you to use Re
 
 ## useState
 
+- The useState hook lets you add state to functional components.
+- In classes, the state is always an object.
+- With the useState hook, the state doesn't have to be an object.
 - A state variable can be a string, a number, a boolean, object or even an array.
-`const [count, setCount] = useState(0)`
+  `const [count, setCount] = useState(0)`
 
 - The above syntax is Array Destructuring
 - Initialize a state "count" variable and set its initial value to 0.
-- Second value is a function which is similar to `setState()` method, used to set the value of "count" and render the component.
+- Second value is a state setter function which is similar to `setState()` method, used to set the value of "count" and render the component.
 
 ```javascript
 <button onClick={() => setCount(count + 1)}>Count {count}</button>
 ```
 
-- Anytime we need to update state value based on the previous state value, always pass in a function that will set a new state value. This is considered safe.
+- If new state value depends on previous state value, always pass in a function that will set a new state value. This is considered safe.
 
   `setCount(prevCount => prevCount + 1)`
 
-- `useState` does not automatically merge and update the object which is a key difference to `setState` of class component. `setState` will merge the state, `useState` hook's setter function will not automatically merge and update the state object. We have to do it manually. We can use the spread operator to handle the manual merge.
+- `useState` does not automatically merge and update the object, array which is a key difference to `setState` of class component. `setState` will merge the state, `useState` hook's setter function will not automatically merge and update the state object. array. We have to do it manually. We can use the spread operator to handle the manual merge.
 
   ```javascript
   const [name, setName] = useState({
-    firstName: '',
-    lastName: ''
-  })
+    firstName: "",
+    lastName: "",
+  });
   ```
 
 - To merge and update the state
@@ -496,8 +506,18 @@ Hooks are a new feature addition in React version 16.8 which allow you to use Re
   <input type="text" value={name.firstName} onChange={(event)=> setName({...name, firstName: event.target.value})}>
   ```
 
+## useEffect
+
+- The Effect hook lets you perform side effects in functional components. Pass in a function that runs after every update to the component.
+- It is a clise replacement for `componentDidMount`, `componentDidUpdate` and `componentWillUnmount`.
+- It runs after every render of the component.
+- It runs after the first render that is on `componentDidMount` and after every update `componentWillUpdate`
+
+- Good optimization technique: In order to conditionally run an effect, specify the second parameter to `useEffect(()=>{}, [])`, the second parameter is the array of values, that the effect depends on. If the values don't change between renders, the effect is simply not run.
+
+- Implementing `componentWillUnmount` lifecycle method is basically returning a function with the unmouting logic(cancelling subscription, removing timers, removing eventlisteners) within `useEffect` method.
+
 # Useful articles & videos I came across
 
 - [Fetching Data in React](https://blog.bitsrc.io/fetching-data-in-react-using-hooks-c6fdd71cb24a)
 - [Youtube: Axios with React](https://www.youtube.com/watch?v=oQnojIyTXb8)
-
