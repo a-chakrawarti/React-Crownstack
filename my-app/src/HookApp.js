@@ -6,6 +6,7 @@ import InputName from "./hook-components/InputName";
 import Todo from "./hook-components/Todo";
 import TitleEffect from "./hook-components/TitleEffect";
 import CountDown from "./hook-components/CountDown";
+import Toggle from "./hook-components/Toggle";
 
 function HookApp() {
   const container = "container";
@@ -19,6 +20,7 @@ function HookApp() {
         <Counter />
         <Todo />
         <TitleEffect />
+        <Toggle />
       </div>
     </div>
   );

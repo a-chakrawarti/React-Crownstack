@@ -20,22 +20,22 @@ const CountDown = () => {
   };
 
   useEffect(() => {
-    console.log("Day firing!");
+    // console.log("Day firing!");
     setDay(Math.floor(getTimeRemaining() / 1000 / 60 / 60 / 24));
   }, [hour, getTimeRemaining]);
 
   useEffect(() => {
-    console.log("Hour firing!");
+    // console.log("Hour firing!");
     setHour(Math.floor(getTimeRemaining() / 1000 / 60 / 60) % 24);
   }, [minute]);
 
   useEffect(() => {
-    console.log("Minute firing!");
+    // console.log("Minute firing!");
     setMinute(Math.floor(getTimeRemaining() / 1000 / 60) % 60);
   }, [second]);
 
   useEffect(() => {
-    console.log("Second firing!");
+    // console.log("Second firing!");
     setInterval(() => {
       setSecond(Math.floor(getTimeRemaining() / 1000) % 60);
     }, 1000);
@@ -47,19 +47,21 @@ const CountDown = () => {
         <input type="date" onChange={getDate} />
         <br />
         <br />
-        <table class="count">
-          <tr>
-            <td>{day}</td>
-            <td>{hour}</td>
-            <td>{minute}</td>
-            <td>{second}</td>
-          </tr>
-          <tr>
-            <th>DAYS</th>
-            <th>HOURS</th>
-            <th>MINUTES</th>
-            <th>SECONDS</th>
-          </tr>
+        <table className="count">
+          <tbody>
+            <tr>
+              <td>{day}</td>
+              <td>{hour}</td>
+              <td>{minute}</td>
+              <td>{second}</td>
+            </tr>
+            <tr>
+              <th>DAYS</th>
+              <th>HOURS</th>
+              <th>MINUTES</th>
+              <th>SECONDS</th>
+            </tr>
+          </tbody>
         </table>
       </div>
     </>
