@@ -14,7 +14,7 @@ const FetchData = () => {
   return (
     <>
       <div>
-        {posts.map((post) => (
+        {posts.slice(0, 10).map((post) => (
           <div key={post.id} className="posts">
             <h3>{post.title}</h3>
             <p>{post.body}</p>

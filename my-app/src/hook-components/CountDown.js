@@ -44,25 +44,27 @@ const CountDown = () => {
   return (
     <>
       <div className="countdown">
-        <input type="date" onChange={getDate} />
+        <input type="date" onChange={getDate} id="count-table" />
         <br />
         <br />
-        <table className="count">
-          <tbody>
-            <tr>
-              <td>{day}</td>
-              <td>{hour}</td>
-              <td>{minute}</td>
-              <td>{second}</td>
-            </tr>
-            <tr>
-              <th>DAYS</th>
-              <th>HOURS</th>
-              <th>MINUTES</th>
-              <th>SECONDS</th>
-            </tr>
-          </tbody>
-        </table>
+        <label htmlFor="count-table">
+          <table className="count">
+            <tbody>
+              <tr>
+                <td>{day}</td>
+                <td>{hour}</td>
+                <td>{minute}</td>
+                <td>{second}</td>
+              </tr>
+              <tr>
+                <th>DAYS</th>
+                <th>HOURS</th>
+                <th>MINUTES</th>
+                <th>SECONDS</th>
+              </tr>
+            </tbody>
+          </table>
+        </label>
       </div>
     </>
   );

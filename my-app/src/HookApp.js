@@ -7,6 +7,7 @@ import Todo from "./hook-components/Todo";
 import TitleEffect from "./hook-components/TitleEffect";
 import CountDown from "./hook-components/CountDown";
 import Toggle from "./hook-components/Toggle";
+import ContextRender from "./hook-components/ContextRender";
 
 function HookApp() {
   const container = "container";
@@ -21,9 +22,16 @@ function HookApp() {
         <Todo />
         <TitleEffect />
         <Toggle />
+        <FirstNameContext.Provider value="Anupam">
+          <LastNameContext.Provider value="Chakrawarti">
+            <ContextRender />
+          </LastNameContext.Provider>
+        </FirstNameContext.Provider>
       </div>
     </div>
   );
 }
 
 export default HookApp;
+export const FirstNameContext = React.createContext();
+export const LastNameContext = React.createContext();

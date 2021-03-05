@@ -517,6 +517,11 @@ Hooks are a new feature addition in React version 16.8 which allow you to use Re
 
 - Implementing `componentWillUnmount` lifecycle method is basically returning a function with the unmouting logic(cancelling subscription, removing timers, removing eventlisteners) within `useEffect` method.
 
+## useContext
+
+- Context in class component affects readability and becomes quite complex when nested.
+- The `useContext` hook only makes the consumption of the context value simpler. Rest is same.
+
 # Useful articles & videos I came across
 
 - [Fetching Data in React](https://blog.bitsrc.io/fetching-data-in-react-using-hooks-c6fdd71cb24a)
