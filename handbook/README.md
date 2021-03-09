@@ -522,6 +522,36 @@ Hooks are a new feature addition in React version 16.8 which allow you to use Re
 - Context in class component affects readability and becomes quite complex when nested.
 - The `useContext` hook only makes the consumption of the context value simpler. Rest is same.
 
+## useReducer
+
+- useReducer is a hook that is used for state management
+- It is an alternative to useState
+- useState is built using useReducer
+
+![reduce-usereducer](./assets/reduce-usereducer.png)
+
+- useReducer is related to reducer functions.
+- `useReducer(reducer, initialState)`
+- `reducer(currentState, action)`
+
+### useState vs useReducer
+
+![useState-useReducer](./assets/useState-useReducer.png)
+
+## useCallback
+
+Used to optimize performance.
+
+- **What?** : `useCallback` is a hook that will return a memoized version of the callback function that only changes if one of the dependencies has changed.
+- **Why?** : It is useful when passing callbacks to optimized (with React.memo) child components that rely on reference eqality to prevent unnecessary renders.
+
+## Custom Hooks
+
+- A custom Hook is basically a JavaScript function whose bane starts with "use".
+- A custom hook can also call other Hooks if required.
+
+- **Why?** - Share logic - Alternative to HOCs and Render Props
+
 # Useful articles & videos I came across
 
 - [Fetching Data in React](https://blog.bitsrc.io/fetching-data-in-react-using-hooks-c6fdd71cb24a)
